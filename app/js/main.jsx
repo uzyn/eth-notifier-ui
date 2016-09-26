@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import '../less/app.less';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './component/App';

@@ -1,3 +1,12 @@
+# eth-notifier-ui
+
+Web UI for ETH Notifier
+
+Ethereum service for sending SMS and email _(coming soon)_ notifications.
+
+Supports IPFS-augmented Ethereum calls for cheaper _(gas)_ calls and encrypted calls.
+
+
 # react-webpack-airbnbjs-boilerplate
 
 Boilerplate for React and Webpack following [Airbnb's JavaScript (ES6) Style Guide](https://github.com/airbnb/javascript).
