@@ -27,7 +27,7 @@ module.exports = {
       },
     ]),
     new DefinePlugin({
-      'process.env': { // to stop eslint from complaining
+      WPDEF: {
         TESTNET: config.get('testnet'),
         CONTRACT_ADDRESS: JSON.stringify(config.get('contractAddress')),
       },
