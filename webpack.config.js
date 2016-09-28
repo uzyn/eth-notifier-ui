@@ -29,7 +29,7 @@ module.exports = {
     new DefinePlugin({
       WPDEF: {
         TESTNET: config.get('testnet'),
-        CONTRACT_ADDRESS: JSON.stringify(config.get('contractAddress')),
+        CONTRACT_ADDRESS: JSON.stringify(config.get('contract.address')),
       },
     }),
   ],
