@@ -6,49 +6,44 @@ Ethereum service for sending SMS and email _(coming soon)_ notifications.
 
 Supports IPFS-augmented Ethereum calls for cheaper _(gas)_ calls and encrypted calls.
 
+## Frontend (static page UI)
 
-# react-webpack-airbnbjs-boilerplate
+1. Install dependencies
 
-Boilerplate for React and Webpack following [Airbnb's JavaScript (ES6) Style Guide](https://github.com/airbnb/javascript).
+    ```bash
+    npm install
+    ```
 
-## What is this
+1. Configure, if required.
 
-- Simple `index.html` loading `bundle.js`.
-- Starter `index.jsx` for React.
-- All code following Airbnb's JavaScript (ES6) style guide with ESlint.
-- Webpack dev server with automatic reloading. Start with: `npm start`.
-- Deployment build with `npm run build`.
+    ```bash
+    cp config/default.js config/local.js
+    # edit local.js accordingly
+    ```
 
-## Components
 
-- [Babel](https://babeljs.io) for ES6 support
-- [ESlint](http://eslint.org) for ES6 linting using Airbnb's JS style guide
-- [Webpack](https://webpack.github.io) for bundling of JavaScript modules
-- [React](https://facebook.github.io/react/) as front-end view library.
+1. Start the dev server, code and enjoy! Browser should automatically refresh if you make any changes to the code.
 
-## How to use
+    ```bash
+    npm start
+    ```
 
-1. `git clone` the repository or [download a zipped package](https://github.com/uzyn/react-webpack-airbnbjs-boilerplate/archive/master.zip).
+    Load [http://localhost:8080/](http://localhost:8080/) on your web browser.
 
-2. Install dependencies
+1. For deployment, run `npm build` and upload `build/` to your server.
 
-  ```bash
-  npm install
-  ```
+## Server
 
-3. Start the dev server, code and enjoy! Browser should automatically refresh if you make any changes to the code.
+While this is mainly a static page UI, there is a Node.JS-based server component to help with pushing of data onto IPFS and encryption.
 
-  ```bash
-  npm start
-  ```
+1. Start the following daemons:
 
-  Load [http://localhost:8080/](http://localhost:8080/) on your web browser.
+    1. [IPFS node](https://ipfs.io)
+    1. Ethereum Web3 provider, either [Geth](https://github.com/ethereum/go-ethereum) or [Parity](https://ethcore.io/parity.html)
 
-4. For deployment, run `npm build` and upload `build/` to your server.
+1. Configure, if required. Start server with, `npm run server`.
 
 ## Credits
-
-This boilerplate is inspired by [jkup/webpack-react-starter](https://github.com/jkup/webpack-react-starter).
 
 ## License
 

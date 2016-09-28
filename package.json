@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --content-base build/",
     "lint": "eslint --ext=js --ext=jsx --ignore-path .gitignore .",
-    "build": "webpack"
+    "build": "webpack",
+    "server": "node server/"
   },
   "repository": {
     "type": "git",
@@ -43,11 +44,13 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
+    "web3": "^0.17.0-beta",
     "webpack": "^1.13.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "config": "^1.21.0",
+    "ipfs-api": "^9.0.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "webpack-dev-server": "^1.14.1"
