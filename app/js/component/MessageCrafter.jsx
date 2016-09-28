@@ -1,5 +1,9 @@
 import React from 'react';
 
+const propTypes = {
+  helperApiUrl: React.PropTypes.string.isRequired,
+};
+
 class MessageCrafter extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -11,6 +15,30 @@ class MessageCrafter extends React.Component {
     console.log(this.phoneInput.value);
     console.log(this.messageInput.value);
     console.log(this.crafterForm.method.value);
+
+    switch (this.crafterForm.method.value) {
+      case 'xipfs-plain':
+      case 'xipfs-encrypted': {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', `${this.props.helperApiUrl}/craft`);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            // console.log(JSON.parse(xhr.responseText);
+          }
+        };
+        xhr.send(JSON.stringify({
+          destination: this.phoneInput.value.trim(),
+          message: this.messageInput.value.trim(),
+          method: this.crafterForm.method.value,
+        }));
+        break;
+      }
+      default: {
+        console.log('none');
+      }
+    }
   }
 
   render() {
@@ -53,5 +81,7 @@ class MessageCrafter extends React.Component {
     );
   }
 }
+
+MessageCrafter.propTypes = propTypes;
 
 export default MessageCrafter;

@@ -30,6 +30,7 @@ module.exports = {
       WPDEF: {
         TESTNET: config.get('testnet'),
         CONTRACT_ADDRESS: JSON.stringify(config.get('contract.address')),
+        HELPER_API_URL: JSON.stringify(config.get('helperApiUrl')),
       },
     }),
   ],
