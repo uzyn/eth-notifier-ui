@@ -35,7 +35,7 @@ export default function App() {
       <section className="main-panel col-md-7">
         <a name="crafter"></a>
         <h2>Craft your message</h2>
-        <MessageCrafter />
+        <MessageCrafter helperApiUrl={WPDEF.HELPER_API_URL} />
 
         <hr />
 

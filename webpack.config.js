@@ -8,6 +8,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'app/js/main'),
   devServer: {
     outputPath: path.join(__dirname, 'build'),
+    port: 8888,
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -29,7 +30,8 @@ module.exports = {
     new DefinePlugin({
       WPDEF: {
         TESTNET: config.get('testnet'),
-        CONTRACT_ADDRESS: JSON.stringify(config.get('contractAddress')),
+        CONTRACT_ADDRESS: JSON.stringify(config.get('contract.address')),
+        HELPER_API_URL: JSON.stringify(config.get('helperApiUrl')),
       },
     }),
   ],
