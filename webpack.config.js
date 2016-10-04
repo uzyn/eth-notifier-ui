@@ -8,6 +8,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'app/js/main'),
   devServer: {
     outputPath: path.join(__dirname, 'build'),
+    port: 8888,
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
