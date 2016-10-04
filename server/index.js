@@ -22,7 +22,6 @@ app.get('/', (req, res) =>
 );
 
 app.post('/craft', (req, res) => {
-  console.log(req.body);
   if (!req.body.destination || !req.body.message || !req.body.method) {
     return res.status(500).send({ error: 'method, destination and message expected in JSON body.' });
   }
@@ -37,19 +36,17 @@ app.post('/craft', (req, res) => {
     req.body.destination,
     req.body.message,
   ];
-  let ipfsData = callParams;
+  const encryption = {};
 
   if (req.body.method === 'xipfs-encrypted') {
-    console.log('encrypted - TODO');
+    encryption.publicKey = Notifier.xIPFSPublicKey();
   }
 
-  return xipfs.push(ipfsData).then(data =>
+  return xipfs.push(callParams, encryption).then(data =>
     res.send({ ipfsHash: data[0].hash })
   , err =>
     res.status(500).send({ error: err })
   );
-
-  // return res.send({hey: 'you'});
 });
 
 const server = app.listen(config.get('server.port'), () => {
