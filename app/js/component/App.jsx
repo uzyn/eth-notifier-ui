@@ -47,7 +47,7 @@ export default function App() {
         </li>
 
         <li>
-          <p>Call <code>notify(transport, destination, message)</code> with ETH 0.03 <span className="small">(Unspent ETH will be refunded)</span></p>
+          <p>Call <code>notify(transport, destination, message)</code> with &ge;&nbsp;ETH&nbsp;0.02 <span className="small">(Balance ETH will be refunded)</span></p>
 
           <table className="table table-striped table-bordered table-params">
           <tbody>

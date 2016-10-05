@@ -14,6 +14,8 @@ class MessageCrafter extends React.Component {
       message: '',
       method: 'standard',
       showSendButton: true,
+      statusNote: '',
+      ipfsHash: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -25,13 +27,24 @@ class MessageCrafter extends React.Component {
     switch (this.state.method) {
       case 'xipfs-plain':
       case 'xipfs-encrypted': {
+        this.setState({
+          ipfsHash: null,
+          statusNote: 'Obtaining IPFS hash…',
+        });
         const xhr = new XMLHttpRequest();
         xhr.open('POST', `${this.props.helperApiUrl}/craft`);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = () => {
+        };
+        xhr.onloadend = () => {
           if (xhr.status === 200) {
-            console.log(xhr.responseText);
-            // console.log(JSON.parse(xhr.responseText);
+            const response = JSON.parse(xhr.responseText);
+            this.setState({
+              statusNote: '',
+              ipfsHash: response.ipfsHash,
+            });
+          } else {
+            this.setState({ statusNote: 'Error. Please ensure number & message are filled.' });
           }
         };
         xhr.send(JSON.stringify({
@@ -42,7 +55,7 @@ class MessageCrafter extends React.Component {
         break;
       }
       default: {
-        console.log('none');
+        break;
       }
     }
   }
@@ -56,19 +69,24 @@ class MessageCrafter extends React.Component {
       }
     }
 
-    this.setState({ [event.target.name]: value });
+    this.setState({
+      [event.target.name]: value,
+      ipfsHash: null,
+    });
   }
 
   showIPFSButton() {
     if (this.state.method !== 'xipfs-plain' && this.state.method !== 'xipfs-encrypted') {
       return '';
     }
+    if (!this.state.destination || !this.state.message) {
+      return '';
+    }
     return (
       <div>
         <button type="submit" className="btn btn-default btn-lg" onClick={this.handleSubmit}>Get IPFS Hash</button>
-        <span className="after-button">
-          <span className="error">osidjofi</span>
-          <span className="success">sdfkpsodkfpoksf</span>
+        <span className="ipfs-status">
+          {this.state.statusNote}
         </span>
       </div>
     );
@@ -104,6 +122,26 @@ class MessageCrafter extends React.Component {
         </div>
       );
     }
+
+    if (this.state.ipfsHash) {
+      return (
+        <div className="well result">
+          To send your message, call
+          <code>xnotify()</code>
+          with the following parameters:
+          <table className="table table-striped table-bordered table-params">
+            <tbody>
+            <tr>
+              <td><code>ipfs_hash</code></td>
+              <td>{this.state.ipfsHash}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
+    return '';
   }
 
   render() {
