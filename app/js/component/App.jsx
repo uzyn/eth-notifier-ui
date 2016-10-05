@@ -39,15 +39,15 @@ export default function App() {
 
         <hr />
 
-        <h2>How?</h2>
+        <h2>Set up</h2>
 
         <ol>
-        <li>Watch ETH Notifier's contract address with the following Application Binary Interface (ABI) from your favorite Ethereum wallet or browser: <br />
-          <textarea name="Notifier.abi" readOnly value={JSON.stringify('TODO')} />
+        <li>Watch ETH Notifier's contract address with the following Application Binary Interface (ABI) from your favorite Ethereum browser: <br />
+          <textarea name="Notifier.abi" readOnly value={WPDEF.CONTRACT_ABI} />
         </li>
 
         <li>
-          <p>Call <code>notify(transport, destination, message)</code> with ETH 0.03 <span className="small">(Unspent ETH will be refunded)</span></p>
+          <p>Call <code>notify(transport, destination, message)</code> with &ge;&nbsp;ETH&nbsp;0.02 <span className="small">(Balance ETH will be refunded)</span></p>
 
           <table className="table table-striped table-bordered table-params">
           <tbody>
@@ -80,9 +80,11 @@ export default function App() {
 
         <h2>Encryption</h2>
 
-        <p>If you do not wish to divulge the content of your message on Ethereum blockchain, you may encrypt your message using encrypted IPFS-augmented call.</p>
+        <p>ETH Notifiier supports IPFS-augmented calls for lower gas consumption and enhanced privacy.</p>
 
-        <p><em>Details coming soon&hellip;</em> <br />Use the <a href="#crafter">message crafter</a> for the time being.</p>
+        <p>To keep your notification calls private, use encryption.</p>
+
+        <p>Encryption is performed via a combination of RSA public-key encryption and symmetric-key encryption similar to how Pretty Good Privacy (PGP) works.</p>
       </section>
     </div>
   );
