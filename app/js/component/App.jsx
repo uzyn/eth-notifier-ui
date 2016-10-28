@@ -16,7 +16,7 @@ export default function App() {
         <img src="./img/eth-notifier-logo.svg" alt="eth-notifier" className="logo" />
         <h1>ETH Notifier</h1>
 
-        <h2>Sends notifications from Ethereum</h2>
+        <h2>Notifications from Ethereum</h2>
 
         {testnetMsg}
 
@@ -28,7 +28,7 @@ export default function App() {
         </p>
 
         <p className="adopt">
-          Supports <strong>IPFS-augmented calls</strong> for lower gas consumption and enhanced privacy.
+          Supports <a href="#xipfs"><strong>IPFS-augmented calls</strong></a> for lower gas consumption and enhanced privacy.
         </p>
       </section>
 
@@ -78,7 +78,8 @@ export default function App() {
 
         <hr />
 
-        <h2>Encryption</h2>
+        <a name="xipfs"></a>
+        <h2>Encryption &amp; IPFS-augmented calls</h2>
 
         <p>ETH Notifiier supports IPFS-augmented calls for lower gas consumption and enhanced privacy.</p>
 
