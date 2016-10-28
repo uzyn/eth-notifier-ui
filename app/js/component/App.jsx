@@ -20,6 +20,12 @@ export default function App() {
 
         <p><em>beta</em></p>
 
+        <p>
+           <a className="github-button" href="https://github.com/uzyn/eth-notifier-ui" data-icon="octicon-star" data-count-aria-label="# stargazers on GitHub" aria-label="Star uzyn/eth-notifier-ui on GitHub">Star</a>
+           &nbsp;&nbsp;
+          <a href="https://twitter.com/share" className="twitter-share-button" data-url="http://ethnotifier.com" data-show-count="false">Tweet</a>
+        </p>
+
         {testnetMsg}
 
         <p className="hidden-xs hidden-sm">&nbsp;</p>
