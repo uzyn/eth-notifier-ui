@@ -29772,6 +29772,15 @@
 	        null,
 	        'Notifications from Ethereum'
 	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        _react2.default.createElement(
+	          'em',
+	          null,
+	          'beta'
+	        )
+	      ),
 	      testnetMsg,
 	      _react2.default.createElement(
 	        'p',
@@ -29940,29 +29949,24 @@
 	              null,
 	              'xnotify(ipfs_hash)'
 	            ),
-	            ' for IPFS-augmented call, with the content containing JSON-representation of the parameters in order.',
-	            _react2.default.createElement('br', null),
-	            ' See also ',
+	            ' for IPFS-augmented call, with the content containing JSON-representation of the parameters in order. See ',
 	            _react2.default.createElement(
-	              'strong',
-	              null,
-	              'encrypted'
+	              'a',
+	              { href: '#xipfs' },
+	              _react2.default.createElement(
+	                'strong',
+	                null,
+	                'encrypted'
+	              ),
+	              ' IPFS-augmented call'
 	            ),
-	            ' IPFS-augmented call.'
+	            ' for more info.'
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          'Done! You should be receiving an SMS seconds after your transaction is mined and confirmed.',
-	          _react2.default.createElement('br', null),
-	          'Check your account balance with various balance functions (see ABI) and withdraw to your wallet with ',
-	          _react2.default.createElement(
-	            'code',
-	            null,
-	            'withdraw()'
-	          ),
-	          '.'
+	          'Done! You should be receiving an SMS seconds after your transaction is mined and confirmed.'
 	        )
 	      ),
 	      _react2.default.createElement('hr', null),
@@ -29986,6 +29990,68 @@
 	        'p',
 	        null,
 	        'Encryption is performed via a combination of RSA public-key encryption and symmetric-key encryption similar to how Pretty Good Privacy (PGP) works.'
+	      ),
+	      _react2.default.createElement('hr', null),
+	      _react2.default.createElement('a', { name: 'xipfs' }),
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        'Tips'
+	      ),
+	      _react2.default.createElement(
+	        'ol',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'To save some fees, set ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'doNotAutoRefund'
+	          ),
+	          ' to ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'false'
+	          ),
+	          ' by using ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'setDoNotAutoRefund(false)'
+	          ),
+	          '. You can then manually withdraw unspent balance with ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'withdraw()'
+	          ),
+	          '.'
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'Transaction times out in ',
+	          _react2.default.createElement(
+	            'em',
+	            null,
+	            '2 days'
+	          ),
+	          '. If for some reason your call is not processed, you can call ',
+	          _react2.default.createElement(
+	            'code',
+	            null,
+	            'checkTimeout()'
+	          ),
+	          ' to trigger the timeout.'
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          'You can have smart contracts send you notifications for certain actions, for example a vault smart contract that notifies you upon withdrawals.'
+	        )
 	      )
 	    )
 	  );
