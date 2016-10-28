@@ -29745,7 +29745,7 @@
 	/* global WPDEF */
 	function App() {
 	  var testnetMsg = '';
-	  var etherscanURL = 'https://etherscan.io/address/' + ("0xcb3c19b56614244ae4dc2f21c4cbd2b66962476f");
+	  var etherscanURL = 'https://etherscan.io/address/' + ("0xF0f31A0A83FC0D83177834Bbdce23F9fB2639818");
 	  if (false) {
 	    testnetMsg = _react2.default.createElement(
 	      'h4',
@@ -29793,7 +29793,7 @@
 	          _react2.default.createElement(
 	            'a',
 	            { href: etherscanURL, target: '_blank' },
-	            ("0xcb3c19b56614244ae4dc2f21c4cbd2b66962476f")
+	            ("0xF0f31A0A83FC0D83177834Bbdce23F9fB2639818")
 	          )
 	        )
 	      ),
