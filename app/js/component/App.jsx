@@ -18,6 +18,8 @@ export default function App() {
 
         <h2>Notifications from Ethereum</h2>
 
+        <p><em>beta</em></p>
+
         {testnetMsg}
 
         <p className="hidden-xs hidden-sm">&nbsp;</p>
@@ -66,12 +68,11 @@ export default function App() {
           </tbody>
           </table>
 
-          <p>Or, <code>xnotify(ipfs_hash)</code> for IPFS-augmented call, with the content containing JSON-representation of the parameters in order.<br /> See also <strong>encrypted</strong> IPFS-augmented call.</p>
+          <p>Or, <code>xnotify(ipfs_hash)</code> for IPFS-augmented call, with the content containing JSON-representation of the parameters in order. See <a href="#xipfs"><strong>encrypted</strong> IPFS-augmented call</a> for more info.</p>
         </li>
 
         <li>
-          Done! You should be receiving an SMS seconds after your transaction is mined and confirmed.<br />
-          Check your account balance with various balance functions (see ABI) and withdraw to your wallet with <code>withdraw()</code>.
+          Done! You should be receiving an SMS seconds after your transaction is mined and confirmed.
         </li>
 
         </ol>
@@ -86,6 +87,20 @@ export default function App() {
         <p>To keep your notification calls private, use encryption.</p>
 
         <p>Encryption is performed via a combination of RSA public-key encryption and symmetric-key encryption similar to how Pretty Good Privacy (PGP) works.</p>
+
+        <hr />
+        <a name="xipfs"></a>
+        <h2>Tips</h2>
+
+        <ol>
+          <li>
+            To save some fees, set <code>doNotAutoRefund</code> to <code>false</code> by using <code>setDoNotAutoRefund(false)</code>. You can then manually withdraw unspent balance with <code>withdraw()</code>.
+          </li>
+
+          <li>Transaction times out in <em>2 days</em>. If for some reason your call is not processed, you can call <code>checkTimeout()</code> to trigger the timeout.</li>
+
+          <li>You can have smart contracts send you notifications for certain actions, for example a vault smart contract that notifies you upon withdrawals.</li>
+        </ol>
       </section>
     </div>
   );
